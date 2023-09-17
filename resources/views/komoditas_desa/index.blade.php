@@ -11,17 +11,21 @@
 <div class="row">
 
 <div class="col-md-3">
-<label>Filter by Status</label>
-<select name="status" class="form-select">
-<option value="">Select Status</option>
-<option value="Sudah Panen" {{ Request::get('kategori') == 'Sudah Panen' ? 'selected' : 'Sudah Panen' }}>Sudah Panen</option>
-<option value="Masih Tanam" {{ Request::get('kategori') == 'Masih Tanam' ? 'selected' : '' }}>Masih Tanam</option>
+    <label for="kategori_id">Filter by Kategori:</label>
+    <select name="kategori_id" id="kategori_id" onchange="filterByKategori(this)">
+      <option value="">All</option>
+        @foreach($kategoriOptions as $kategori)
+            <option value="{{ $kategori->id }}" {{ $kategori->kategori_id == $selectedKategoriId ? 'selected' : '' }}>
+                {{ $kategori->kategori }}
+            </option>
+        @endforeach
+    </select>
+</div>
 
-</select>
-</div>
 <div class="col-md-6">
-<button type="submit" class="btn btn-primary">Filter</button>
+    <button type="submit" class="btn btn-primary">Filter</button>
 </div>
+
 </div>
 </form>
 <hr>
@@ -45,7 +49,7 @@
     </thead>
     <tbody>
         @if($komoditasDesa->count() > 0)
-        @foreach($komoditasDesa as $wir)
+        @foreach($filteredKomoditasDesa as $wir)
         <tr>
             <td class="align-middle">{{ $loop->iteration }}</td>
             <td class="align-middle">{{ $wir->desa->nama_desa }}</td>
@@ -57,6 +61,9 @@
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <a href="{{ route('komoditas_desa.edit', $wir->id)}}" type="button" class="btn btn-warning">
                         <i class="fas fa-pen"></i>
+                    </a>
+                    <a href="{{ route('komoditas_desa.show', $wir->id) }}" type="button" class="btn btn-primary">
+                        <i class="fas fa-info-circle"></i> 
                     </a>
                     <form action="{{ route('komoditas_desa.destroy', $wir->id) }}" method="POST" class="m-0" onsubmit="return confirm('Delete?')">
                         @csrf
@@ -75,4 +82,18 @@
         @endif
     </tbody>
 </table>
+<script>
+    function filterByKategori(select) {
+        var selectedKategoriId = select.value; // Dapatkan nilai terpilih dari dropdown
+        var url = '{{ route("komoditas_desa") }}'; // Ganti dengan URL ke halaman Anda
+    
+        // Tambahkan parameter kategori_id ke URL jika ada yang terpilih
+        if (selectedKategoriId) {
+            url += '?kategori_id=' + selectedKategoriId;
+        }
+    
+        // Redirect ke URL yang baru
+        window.location.href = url;
+    }
+    </script>
 @endsection

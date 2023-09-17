@@ -31,10 +31,30 @@ class KomoditasDesaController extends Controller
     }
 
 
-    public function index()
-    {
+    public function index(Request $request)
+    {    
         $komoditasDesa = KomoditasDesa::with(['desa', 'kategori', 'komoditi'])->get();
-        return view('komoditas_desa.index', compact('komoditasDesa'));
+       
+        $filter = KomoditasDesa::query();
+        $selectedKategoriId = $request->kategori_id;
+
+        // Filter berdasarkan kategori_id jika ada dalam request
+        if ($request->has('kategori_id')) {
+            $filter->where('kategori_id', $request->kategori_id);
+        }
+        $kategoriOptions = Kategori::all();
+        if ($selectedKategoriId) {
+            $filter->whereHas('kategori', function ($query) use ($selectedKategoriId) {
+                $query->where('id', $selectedKategoriId);
+            });
+        }else{
+            $filter = KomoditasDesa::query();
+        }
+        // Dapatkan data yang sudah difilter
+        $filteredKomoditasDesa = $filter->get();
+        //dd($filteredKomoditasDesa);
+        return view('komoditas_desa.index', compact('komoditasDesa', 'filteredKomoditasDesa', 'kategoriOptions','selectedKategoriId'));
+       
     }
 
     public function create()
@@ -63,6 +83,7 @@ class KomoditasDesaController extends Controller
     public function show($id)
     {
         $komoditasDesa = KomoditasDesa::with(['desa', 'kategori', 'komoditi'])->find($id);
+        //dd($komoditasDesa->all());
         return view('komoditas_desa.show', compact('komoditasDesa'));
     }
 

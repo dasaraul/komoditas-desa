@@ -75,5 +75,7 @@
   <script src="{{ asset('admin_assets/js/sb-admin-2.min.js') }}"></script>
   <!-- Page level plugins -->
   <script src="{{ asset('admin_assets/vendor/chart.js/Chart.min.js') }}"></script>
+  <script src="{{ asset('admin_assets/js/custom.js') }}"></script>
+
 </body>
 </html>
