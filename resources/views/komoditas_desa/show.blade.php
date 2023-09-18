@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.jir')
 
 @section('title', 'Detail Komoditas Desa')
 
@@ -15,7 +15,6 @@
 <p>Nama Komoditas: {{ $komoditasDesa->kategori->kategori}}</p>
 <p>Komoditi: {{ $komoditasDesa->komoditi->nama_komoditi }}</p>
 <p>jumlah: {{ $komoditasDesa->jumlah  }}</p>
-<!-- Tambahkan informasi lainnya yang perlu ditampilkan -->
 <a href="{{ route('komoditas_desa') }}" class="btn btn-primary">Kembali</a>
 <button onclick="printPage()" class="btn btn-warning">Cetak</button>
 @endsection

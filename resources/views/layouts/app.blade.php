@@ -43,6 +43,7 @@
           @yield('contents')
   
           <!-- Content Row -->
+          
   
   
         </div>
