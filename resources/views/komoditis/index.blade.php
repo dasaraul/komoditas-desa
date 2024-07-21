@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Home Komoditas')
+@section('title', 'Home Konsumen')
 
 @section('contents')
 <div class="d-flex align-items-center justify-content-between">
-    <h1 class="mb-0">List Komoditas</h1>
+    <h1 class="mb-0">List Data Konsumen</h1>
     <a href="{{ route('komoditis.create') }}" class="btn btn-primary">Add Komoditas</a>
 </div>
 <hr />

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Home Komoditas Desa')
+@section('title', 'Home Input to Dashboard')
 
 @section('contents')
 <style>
@@ -39,7 +39,7 @@ option:selected {
 }
 </style>
 <div class="d-flex align-items-center justify-content-between">
-    <h1 class="mb-0">List Desa</h1>
+    <h1 class="mb-0">List Data</h1>
     <a href="{{ route('komoditas_desa.create') }}" class="btn btn-primary">Add Komoditas Desa</a>
 </div>
 <form action="" method="GET">
@@ -69,9 +69,9 @@ option:selected {
     <thead class="table-primary">
         <tr>
             <th>No</th>
-            <th>Nama Desa</th>
-            <th>Nama Komoditas</th>
-            <th>Tanggal Data Dibuat</th>
+            <th>Nama Produk</th>
+            <th>Nama Konsumen</th>
+            <th>Tanggal Dibeli</th>
             <th>Status</th>
             <th>Jumlah</th>
             <th>Action</th> <!-- Tambah kolom Action untuk tombol Edit dan Delete -->
@@ -86,7 +86,7 @@ option:selected {
             <td class="align-middle">{{ $wir->komoditi->nama_komoditi }}</td>
             <td class="align-middle">{{ $wir->updated_at }}</td>
             <td class="align-middle">{{ $wir->kategori->kategori }}</td>
-            <td class="align-middle">{{ $wir->jumlah }} KG</td>
+            <td class="align-middle">{{ $wir->jumlah }} pcs</td>
             <td class="align-middle">
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <a href="{{ route('komoditas_desa.edit', $wir->id)}}" type="button" class="btn btn-warning">

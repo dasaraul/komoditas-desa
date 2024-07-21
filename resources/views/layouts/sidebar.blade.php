@@ -3,9 +3,9 @@
   <!-- Sidebar - Brand -->
   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
     <div class="sidebar-brand-icon rotate-n-15">
-      <i class="fas fa-solid fa-cube"></i>
+      <i class="fas fa-solid fa-boxes"></i>
     </div>
-    <div class="sidebar-brand-text mx-3">APLIKASI SISMONEV</div>
+    <div class="sidebar-brand-text mx-3">TAMENGS STORE</div>
   </a>
   
   <!-- Divider -->
@@ -21,25 +21,25 @@
   <li class="nav-item">
     <a class="nav-link" href="{{ route('kategoris') }}">
       <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>Data Kategori</span></a>
+      <span>Status</span></a>
   </li>
 
   <li class="nav-item">
     <a class="nav-link" href="{{ route('desas') }}">
       <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>Data Desa</span></a>
+      <span>Data Produk</span></a>
   </li>
 
   <li class="nav-item">
     <a class="nav-link" href="{{ route('komoditis') }}">
       <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>Data Komoditi</span></a>
+      <span>Data Konsumen</span></a>
   </li>
 
   <li class="nav-item">
     <a class="nav-link" href="{{ route('komoditas_desa') }}">
       <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>Data Komoditas Desa</span></a>
+      <span>Data Input Dashboard</span></a>
   </li>
   
   <li class="nav-item">

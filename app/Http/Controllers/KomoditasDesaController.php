@@ -77,7 +77,7 @@ class KomoditasDesaController extends Controller
         ]);
         $komoditasDesa->save();
 
-        return redirect()->route('komoditas_desa')->with('success', 'Data komoditas desa berhasil ditambahkan');
+        return redirect()->route('komoditas_desa')->with('success', 'Data Input Dashboard berhasil ditambahkan');
     }
 
     public function show($id)
@@ -107,7 +107,7 @@ class KomoditasDesaController extends Controller
         $komoditasDesa->jumlah = $request->input('jumlah');
         $komoditasDesa->save();
 
-        return redirect()->route('komoditas_desa')->with('success', 'Data komoditas desa berhasil diperbarui');
+        return redirect()->route('komoditas_desa')->with('success', 'Data Input Dashboard berhasil diperbarui');
     }
 
     public function destroy($id)
@@ -115,6 +115,6 @@ class KomoditasDesaController extends Controller
         $komoditasDesa = KomoditasDesa::find($id);
         $komoditasDesa->delete();
 
-        return redirect()->route('komoditas_desa')->with('success', 'Data komoditas desa berhasil dihapus');
+        return redirect()->route('komoditas_desa')->with('success', 'Data Input Dashboard berhasil dihapus');
     }
 }

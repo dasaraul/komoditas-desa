@@ -1,6 +1,6 @@
 @extends('layouts.app')
   
-@section('title', 'Data Komoditas Desa')
+@section('title', 'Data Input Dashboard')
   
 @section('contents')
     <h1 class="mb-0">Add Komoditas Desa</h1>

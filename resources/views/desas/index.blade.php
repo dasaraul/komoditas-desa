@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Home Desa')
+@section('title', 'Home List Produk')
 
 @section('contents')
 <div class="d-flex align-items-center justify-content-between">
-    <h1 class="mb-0">List Desa</h1>
+    <h1 class="mb-0">List Data Produk</h1>
     <a href="{{ route('desas.create') }}" class="btn btn-primary">Add Desa</a>
 </div>
 <hr />

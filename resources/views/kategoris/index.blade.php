@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Home Kategori')
+@section('title', 'Home Status Produk')
 
 @section('contents')
 <div class="d-flex align-items-center justify-content-between">
-    <h1 class="mb-0">List Kategori</h1>
+    <h1 class="mb-0">List Status Produk</h1>
     <a href="{{ route('kategoris.create') }}" class="btn btn-primary">Add Kategori</a>
 </div>
 <hr />
